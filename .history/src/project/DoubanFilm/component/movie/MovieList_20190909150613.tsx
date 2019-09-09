@@ -1,6 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { View, Image, Text, ActivityIndicator, FlatList, StyleSheet, TouchableHighlight } from 'react-native';
-import { Actions } from 'react-native-router-flux'; // 导入路由的组件
+
+const styles = StyleSheet.create({
+  movieTitle: {
+    fontWeight: 'bold'
+  }
+})
+
+// 导入路由的组件
+import { Actions } from 'react-native-router-flux'
 
 interface ITypeProps {
 
@@ -104,7 +112,7 @@ export default class MovieList extends Component<ITypeProps, ITypeState> {
         :
         <FlatList
           data={this.state.movies}
-          keyExtractor={(item, index) => {return "index" + index + item;}} // 解决 key 问题
+          keyExtractor={(item, index) => item} // 解决 key 问题
           renderItem={({ item }) => this.renderItem(item)} // 调用方法，去渲染每一项
           ItemSeparatorComponent={this.renderSeparator} //渲染分割线的属性方法
           onEndReachedThreshold={0.5} // 距离底部还有多远的时候，触发加载更多的事件
@@ -113,10 +121,3 @@ export default class MovieList extends Component<ITypeProps, ITypeState> {
     );
   }
 }
-
-
-const styles = StyleSheet.create({
-  movieTitle: {
-    fontWeight: 'bold'
-  }
-})

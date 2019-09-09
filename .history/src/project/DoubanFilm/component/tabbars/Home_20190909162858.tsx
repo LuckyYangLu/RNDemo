@@ -44,6 +44,7 @@ export default class Home extends Component<typeProps, typeState> {
 
   // 改变swpierIndex
   swiperChangeIndex (index:any) {
+    console.warn('sipwerIndexIs：',index);
     this.setState({swiperIndex:index});
   }
 

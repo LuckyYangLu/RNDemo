@@ -24,7 +24,7 @@ export default class MovieDetail extends Component<ITypeProps, ITypeState> {
   }
 
   componentWillMount() {
-    fetch('https://douban.uieee.com/v2/movie/subject/' + this.props.id)
+    fetch('https://api.douban.com/v2/movie/subject/' + this.props.id)
       .then(res => res.json())
       .then(data => {
         this.setState({

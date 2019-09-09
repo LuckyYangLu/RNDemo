@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { View, Image, Text, ActivityIndicator, FlatList, StyleSheet, TouchableHighlight } from 'react-native';
-import { Actions } from 'react-native-router-flux'; // 导入路由的组件
+// 导入路由的组件
+import { Actions } from 'react-native-router-flux';
+
+
 
 interface ITypeProps {
 

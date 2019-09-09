@@ -1,13 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { View, Image, Text, ActivityIndicator, FlatList, StyleSheet, TouchableHighlight } from 'react-native';
-import { Actions } from 'react-native-router-flux'; // 导入路由的组件
+
+const styles = StyleSheet.create({
+  movieTitle: {
+    fontWeight: 'bold'
+  }
+})
+
+// 导入路由的组件
+import { Actions } from 'react-native-router-flux'
 
 interface ITypeProps {
 
 };
 
 interface ITypeState {
-  movies: string[], // 电影列表
+  movies: String[], // 电影列表
   nowPage: number, // 当前的页码
   totalPage: number, // 总页数
   pageSize: number, // 每页显示的记录条数
@@ -28,7 +36,6 @@ export default class MovieList extends Component<ITypeProps, ITypeState> {
     this.getMoviesByPage = this.getMoviesByPage.bind(this);
     this.renderSeparator = this.renderSeparator.bind(this);
     this.loadNextPage = this.loadNextPage.bind(this);
-    this.renderItem = this.renderItem.bind(this);
   }
 
 
@@ -39,7 +46,7 @@ export default class MovieList extends Component<ITypeProps, ITypeState> {
   // 根据页码获取电影列表
   getMoviesByPage() {
     const start = (this.state.nowPage - 1) * this.state.pageSize
-    const url = `https://douban.uieee.com/v2/movie/in_theaters?start=${start}&count=${this.state.pageSize}`
+    const url = `https://api.douban.com/v2/movie/in_theaters?start=${start}&count=${this.state.pageSize}`
 
     fetch(url)
       .then(res => {
@@ -104,7 +111,7 @@ export default class MovieList extends Component<ITypeProps, ITypeState> {
         :
         <FlatList
           data={this.state.movies}
-          keyExtractor={(item, index) => {return "index" + index + item;}} // 解决 key 问题
+          keyExtractor={(item, i) => i} // 解决 key 问题
           renderItem={({ item }) => this.renderItem(item)} // 调用方法，去渲染每一项
           ItemSeparatorComponent={this.renderSeparator} //渲染分割线的属性方法
           onEndReachedThreshold={0.5} // 距离底部还有多远的时候，触发加载更多的事件
@@ -113,10 +120,3 @@ export default class MovieList extends Component<ITypeProps, ITypeState> {
     );
   }
 }
-
-
-const styles = StyleSheet.create({
-  movieTitle: {
-    fontWeight: 'bold'
-  }
-})

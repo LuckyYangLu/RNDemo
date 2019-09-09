@@ -52,7 +52,7 @@ export default class Home extends Component<typeProps, typeState> {
       <View style={{ height: getPixel(400) }}>
         {/* 轮播图的结构 */}
         {/* 在 轮播图的 Swiper 组件外面，需要套一层 View，给这个 View 需要手动设置一个高度 */}
-        <Swiper style={styles.wrapper} showsButtons={true} autoplay={false} loop={true} index={this.state.swiperIndex} onIndexChanged={(index: any)=>this.swiperChangeIndex(index)}>
+        <Swiper style={styles.wrapper} showsButtons={true} autoplay={true} loop={true} index={this.state.swiperIndex} onIndexChanged={(index: any)=>this.swiperChangeIndex(index)}>
           {this.state.banner && this.state.banner.map((item, i) => {
             return (
               <TouchableWithoutFeedback key={i} onPress={()=>this.setState({swiperIndex: i})}>
