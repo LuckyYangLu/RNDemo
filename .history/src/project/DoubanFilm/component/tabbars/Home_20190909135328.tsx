@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image, TouchableHighlight } from 'react-native'
 import Swiper from 'react-native-swiper'; // 轮播图
-const  util = require('@/util/AdapterUtil'); // 适配方案一
-let unitWidth = util.unitWidth;
-const { getPixel } = require('@/util/common'); // 适配方案二
+const { unitWidth } = require('@/util/AdapterUtil'); // 适配
 
 
 interface typeProps {
@@ -40,7 +38,7 @@ export default class Home extends Component<typeProps, typeState> {
 
   render() {
     return (
-      <View style={{ height: getPixel(400) }}>
+      <View style={{ height:  unitWidth *440 }}>
         {/* 轮播图的结构 */}
         {/* 在 轮播图的 Swiper 组件外面，需要套一层 View，给这个 View 需要手动设置一个高度 */}
         <Swiper style={styles.wrapper} showsButtons={true} autoplay={true} loop={true}>
@@ -53,30 +51,35 @@ export default class Home extends Component<typeProps, typeState> {
         {/* 在 RN 中，默认，就已经为 所有的 View 启用了弹性和模型，同时，默认的主轴是 纵向的 */}
         <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
           <View style={styles.box}>
-            <Image source={require('../../images/menu1.png')} style={{ width: 60, height: 60 }}></Image>
+            <Image source={require('../../images/menu1.png')} style={{ width: unitWidth*60, height:unitWidth*60 }}></Image>
             <Text>新闻资讯</Text>
           </View>
           <View style={styles.box}>
-            <Image source={require('../../images/menu2.png')} style={{ width: 60, height: 60 }}></Image>
+          <Image source={require('../../images/menu1.png')} style={{ width: unitWidth*60, height:unitWidth*60 }}></Image>
+            <Text>新闻资讯</Text>
             <Text>图片分析</Text>
           </View>
           <View style={styles.box}>
-            <Image source={require('../../images/menu3.png')} style={{ width: 60, height: 60 }}></Image>
+          <Image source={require('../../images/menu1.png')} style={{ width: unitWidth*60, height:unitWidth*60 }}></Image>
+            <Text>新闻资讯</Text>
             <Text>商品购买</Text>
           </View>
           <View style={styles.box}>
-            <Image source={require('../../images/menu4.png')} style={{ width: 60, height: 60 }}></Image>
+          <Image source={require('../../images/menu1.png')} style={{ width: unitWidth*60, height:unitWidth*60 }}></Image>
+            <Text>新闻资讯</Text>
             <Text>视频专区</Text>
           </View>
           <TouchableHighlight onPress={this.goMovieList} underlayColor="white" style={styles.box}>
             {/* 在 TouchableHighlight 内部，只能放置唯一的一个元素 */}
             <View>
-              <Image source={require('../../images/menu5.png')} style={{ width: 60, height: 60 }}></Image>
+            <Image source={require('../../images/menu1.png')} style={{ width: unitWidth*60, height:unitWidth*60 }}></Image>
+            <Text>新闻资讯</Text>
               <Text>热映电影</Text>
             </View>
           </TouchableHighlight>
           <View style={styles.box}>
-            <Image source={require('../../images/menu6.png')} style={{ width: 60, height: 60 }}></Image>
+          <Image source={require('../../images/menu1.png')} style={{ width: unitWidth*60, height:unitWidth*60 }}></Image>
+            <Text>新闻资讯</Text>
             <Text>联系我们</Text>
           </View>
         </View>

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image, TouchableHighlight } from 'react-native'
 import Swiper from 'react-native-swiper'; // 轮播图
-const  util = require('@/util/AdapterUtil'); // 适配方案一
-let unitWidth = util.unitWidth;
-const { getPixel } = require('@/util/common'); // 适配方案二
+const { unitWidth } = require('@/util/AdapterUtil'); // 适配
+const { getPixel } = require('@/util/common'); // 适配
 
 
 interface typeProps {

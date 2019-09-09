@@ -2,16 +2,25 @@
  * 自己的首页
  */
 
-// 导入 react
+// 导入 RN相关组件
 import React, { Component } from 'react';
-import TabNavigator from 'react-native-tab-navigator'; // tabbar插件
 import { View, StyleSheet } from 'react-native';
+import { YellowBox } from 'react-native'; // 去掉Warning
+import TabNavigator from 'react-native-tab-navigator'; // tabbar插件
+import Icon from 'react-native-vector-icons/FontAwesome'; // 导入图标相关的组件
+// 导入自定义组件
 import Home from './component/tabbars/Home';
 import Me from './component/tabbars/Me';
 import Search from './component/tabbars/Search';
 import ShopCar from './component/tabbars/ShopCar';
-// 导入图标相关的组件
-import Icon from 'react-native-vector-icons/FontAwesome';
+// romve Warning
+YellowBox.ignoreWarnings([
+  'Warning: ViewPagerAndroid has been extracted',
+  'Warning: componentWillMount is deprecated',
+  'Warning: componentWillReceiveProps is deprecated',
+  'Module RCTImageLoader requires',
+  'Warning: componentWillUpdate is deprecated'
+]);
 
 export default class MyHomePage extends Component {
   constructor(props) {

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image, TouchableHighlight } from 'react-native'
 import Swiper from 'react-native-swiper'; // 轮播图
-const  util = require('@/util/AdapterUtil'); // 适配方案一
-let unitWidth = util.unitWidth;
-const { getPixel } = require('@/util/common'); // 适配方案二
+const { unitWidth } = require('@/util/AdapterUtil'); // 适配
 
 
 interface typeProps {
@@ -40,7 +38,7 @@ export default class Home extends Component<typeProps, typeState> {
 
   render() {
     return (
-      <View style={{ height: getPixel(400) }}>
+      <View style={{ height: 220 }}>
         {/* 轮播图的结构 */}
         {/* 在 轮播图的 Swiper 组件外面，需要套一层 View，给这个 View 需要手动设置一个高度 */}
         <Swiper style={styles.wrapper} showsButtons={true} autoplay={true} loop={true}>
